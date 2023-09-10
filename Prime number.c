@@ -1,8 +1,12 @@
 #include <stdio.h>
 int isPrimeNumber(int n)
 {
-	int i;
-	for (i = 2; i < n; i++)
+	if (n == 2) 
+		return 1;
+	else if (n == 1)
+		return 0;
+
+	for (int i = 2; i < n; i++)
 		if (!(n % i))
             return 0;
     return 1;
