@@ -6,30 +6,30 @@ int digitSum(int n)
 {
 	int sum = 0;
    while (n > 0) {
-      int unit = n % 10;
-      sum += unit;
+      int digit = n % 10;
+      sum += digit;
       n /= 10;
    }
    return sum;
 }
-int noRepeatedDigit(int n)
+int differentDigit(int n)
 {
-   int digit_arr[10] = {0}, unit;
+   int digit_arr[10] = {0}, digit;
    while (n > 0) {
-      unit = n % 10;
-      if (digit_arr[unit] == 1)
+      digit = n % 10;
+      if (digit_arr[digit])
          return 0;
-      digit_arr[unit] = 1;
+      digit_arr[digit] = 1;
       n /= 10;
    }
    return 1;
 }
 int outPut(int n) 
 {
-   int i = 1;
-   while ((digitSum(i) != n) || (!noRepeatedDigit(i))) {
+   int i = 1,
+       condition = (digitSum(i) == n) && (differentDigit(i));
+   while (!condition) 
       i++;
-   }
    return i;
 }
 int main()
