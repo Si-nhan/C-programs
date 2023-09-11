@@ -1,15 +1,16 @@
 #include <stdio.h>
-int isPrimeNumber(int n)
+#include <stdbool.h>
+bool isPrimeNumber(int n)
 {
 	if (n == 2) 
-		return 1;
+		return true;
 	else if (n == 1)
-		return 0;
+		return false;
 
 	for (int i = 2; i < n; i++)
 		if (!(n % i))
-            return 0;
-    return 1;
+            return false;
+    return true;
 }
 main()
 {
